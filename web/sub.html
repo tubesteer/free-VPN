@@ -1229,7 +1229,7 @@ select.form-control {
                 switch (type) {
                     case 'vless': 
                         const vlessLabel = formatLabel(countryCode, isp, 'VLESS', tls);
-                        config = `vless://${uuid}@${domain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${host}&path=%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${sni}#${encodeURIComponent(vlessLabel)}`;
+                        config = `vless://${uuid}@${domain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${host}&path=%2FFree%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${sni}#${encodeURIComponent(vlessLabel)}`;
                         break;
                     
                     case 'vmess': 
@@ -1240,13 +1240,13 @@ select.form-control {
                     
                     case 'trojan': 
                         const trojanLabel = formatLabel(countryCode, isp, 'TROJAN', tls);
-                        config = `trojan://${uuid}@${domain}:${tls ? 443 : 80}?security=${tls ? 'tls' : 'none'}&type=ws&host=${host}&path=%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${sni}#${encodeURIComponent(trojanLabel)}`;
+                        config = `trojan://${uuid}@${domain}:${tls ? 443 : 80}?security=${tls ? 'tls' : 'none'}&type=ws&host=${host}&path=%2FFree%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${sni}#${encodeURIComponent(trojanLabel)}`;
                         break;
                     
                     case 'shadowsocks': 
                         const ssLabel = formatLabel(countryCode, isp, 'SS', tls);
                         const ssAuth = `none:${uuid}`;
-                        config = `ss://${safeBase64Encode(ssAuth)}@${domain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${host}&path=%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${sni}#${encodeURIComponent(ssLabel)}`;
+                        config = `ss://${safeBase64Encode(ssAuth)}@${domain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${host}&path=%2FFree%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${sni}#${encodeURIComponent(ssLabel)}`;
                         break;
                     
                     case 'mix': 
@@ -1261,10 +1261,10 @@ select.form-control {
                         const ssAuthMix = `none:${uuid}`;
                         
                         config = [
-                            `vless://${uuid}@${domain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${host}&path=%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${sni}#${encodeURIComponent(vlessLabelMix)}`,
+                            `vless://${uuid}@${domain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${host}&path=%2FFree%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${sni}#${encodeURIComponent(vlessLabelMix)}`,
                             `vmess://${safeBase64Encode(vmessStringMix)}`,
-                            `trojan://${uuid}@${domain}:${tls ? 443 : 80}?security=${tls ? 'tls' : 'none'}&type=ws&host=${host}&path=%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${sni}#${encodeURIComponent(trojanLabelMix)}`,
-                            `ss://${safeBase64Encode(ssAuthMix)}@${domain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${host}&path=%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${sni}#${encodeURIComponent(ssLabelMix)}`
+                            `trojan://${uuid}@${domain}:${tls ? 443 : 80}?security=${tls ? 'tls' : 'none'}&type=ws&host=${host}&path=%2FFree%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${sni}#${encodeURIComponent(trojanLabelMix)}`,
+                            `ss://${safeBase64Encode(ssAuthMix)}@${domain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${host}&path=%2FFree%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${sni}#${encodeURIComponent(ssLabelMix)}`
                         ].join('\n');
                         break;
                 }
